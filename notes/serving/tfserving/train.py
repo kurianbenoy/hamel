@@ -50,8 +50,7 @@ def get_model(maxlen, vocab_size, embed_dim, num_heads, ff_dim):
     x = layers.Dense(20, activation="relu")(x)
     x = layers.Dropout(0.1)(x)
     outputs = layers.Dense(2, activation="softmax")(x)
-    model = keras.Model(inputs=inputs, outputs=outputs)
-    return model
+    return keras.Model(inputs=inputs, outputs=outputs)
 
 
 def foo():

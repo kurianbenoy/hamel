@@ -5,10 +5,11 @@ from logging import warning
 
 
 def increase_header_level(elem, doc):
-    if type(elem) == CodeBlock and type(elem.parent.prev) == CodeBlock:
-        return ([RawBlock("<CodeOutput>"), elem, RawBlock("</CodeOutput>")])
-    elif type(elem) == CodeBlock:
-        elem.classes = ['file=script.py']
+    if type(elem) == CodeBlock:
+        if type(elem.parent.prev) == CodeBlock:
+            return ([RawBlock("<CodeOutput>"), elem, RawBlock("</CodeOutput>")])
+        else:
+            elem.classes = ['file=script.py']
 
 
 def main(doc=None):

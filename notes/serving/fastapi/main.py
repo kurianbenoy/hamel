@@ -49,5 +49,4 @@ class Sentence(BaseModel):
 
 @app.post("/predict")
 def predict(data:Sentence, status_code=status.HTTP_200_OK):
-    preds = pred(items['model'], data.tokens)
-    return preds
+    return pred(items['model'], data.tokens)
